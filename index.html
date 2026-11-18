@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#070611"><title>GTA VI Global Countdown</title>
+<style>
+:root{--pink:#ff4eae;--cyan:#70efff}*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#070611;color:white;font-family:Arial,Helvetica,sans-serif}
+#stage{position:relative;width:100vw;height:100vh;overflow:hidden;background:radial-gradient(ellipse at 50% 44%,#291047 0%,#130b26 46%,#070611 100%)}
+.grid{position:absolute;inset:0;opacity:.14;background-image:linear-gradient(#a98aff33 1px,transparent 1px),linear-gradient(90deg,#a98aff33 1px,transparent 1px);background-size:4vw 4vw}
+.top{position:absolute;top:3%;left:3%;right:3%;display:flex;justify-content:space-between;z-index:5;font-size:clamp(9px,1vw,15px);letter-spacing:.25em;font-weight:bold}.brand em{color:var(--pink);font-style:normal}.live{color:#ff7297}.live:before{content:"● ";animation:blink 1.2s infinite}
+.heading{position:absolute;top:8%;left:0;right:0;text-align:center;z-index:4}.heading h1{margin:0;font-size:clamp(25px,4.2vw,64px);letter-spacing:.12em;text-shadow:0 0 22px #ff4eae88}.heading p{margin:.8vh 0;color:#d9c7ef;font-size:clamp(8px,.95vw,14px);letter-spacing:.4em}
+.hero{position:absolute;top:22%;left:50%;transform:translateX(-50%);width:52%;text-align:center;z-index:4;padding:1vh 1vw;border:1px solid #ff6ec744;border-radius:14px;background:#140a2acc;box-shadow:0 0 38px #8f47ff22}
+.kicker{font-size:clamp(8px,.9vw,13px);letter-spacing:.3em;color:var(--cyan);font-weight:bold}#count{font-size:clamp(30px,5.2vw,76px);font-weight:900;letter-spacing:.04em;font-variant-numeric:tabular-nums;margin:.5vh 0;text-shadow:0 0 12px #ff4eae,0 0 32px #a98aff}.units{display:flex;justify-content:center;gap:2vw;color:#d7c8ec;font-size:clamp(7px,.7vw,11px);letter-spacing:.18em}
+.map{position:absolute;left:5%;top:35%;width:90%;height:44%;z-index:1}.land{fill:url(#land);stroke:#ff8aca;stroke-width:1.2;filter:url(#glow);opacity:.84}.arc{fill:none;stroke:#70efff;stroke-width:1.5;stroke-dasharray:5 8;animation:flow 13s linear infinite}.arc.alt{stroke:#ff8bd0;animation-duration:18s}.pin{fill:white;stroke:#ff55b6;stroke-width:3;filter:url(#glow);transform-box:fill-box;transform-origin:center;animation:ping 2.4s infinite}.maplabel{font-size:12px;fill:white;letter-spacing:1.8px;font-weight:bold;paint-order:stroke;stroke:#160b28;stroke-width:4px}
+.citygrid{position:absolute;left:3%;right:3%;bottom:8%;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:.8vh .65vw;z-index:5}.city{padding:.8vh .4vw;border:1px solid #ff6fc777;border-radius:7px;text-align:center;background:linear-gradient(145deg,#2d124de8,#0a0919f2);box-shadow:0 4px 18px #0007}.city strong{display:block;font-size:clamp(7px,.8vw,12px);letter-spacing:.1em;color:#ffb9df;white-space:nowrap}.clock{display:block;margin-top:.35vh;font-size:clamp(9px,1vw,15px);font-weight:bold;font-variant-numeric:tabular-nums}.remaining{display:block;margin-top:.25vh;font-size:clamp(7px,.72vw,11px);color:var(--cyan);font-variant-numeric:tabular-nums}.city.main{border-color:#70efff;box-shadow:0 0 18px #70efff33}.city.main strong{color:#9bf4ff}
+.bottom{position:absolute;bottom:2.4%;left:3%;right:3%;display:flex;justify-content:space-between;color:#9589ad;font-size:clamp(7px,.68vw,10px);letter-spacing:.12em;z-index:5}.audio{position:absolute;right:3%;top:9%;z-index:10;border:1px solid #70efff88;background:#0c081ddd;color:#b9f8ff;border-radius:20px;padding:7px 12px;font-size:10px;letter-spacing:.08em}.note{position:absolute;left:3%;top:9%;z-index:5;color:#9b90ae;font-size:clamp(7px,.65vw,10px);letter-spacing:.1em}
+@keyframes blink{50%{opacity:.25}}@keyframes flow{to{stroke-dashoffset:-260}}@keyframes ping{0%,100%{transform:scale(.8);opacity:.7}50%{transform:scale(1.3);opacity:1}}
+@media(max-aspect-ratio:1/1){.heading{top:9%}.heading h1{font-size:clamp(21px,6vw,34px)}.hero{top:23%;width:90%}#count{font-size:clamp(25px,8vw,42px)}.map{top:39%;left:0;width:100%;height:34%}.citygrid{grid-template-columns:repeat(3,minmax(0,1fr));bottom:8%;gap:5px}.city{padding:5px 2px}.city strong{font-size:8px}.clock{font-size:10px}.remaining{font-size:8px}.bottom{font-size:6px}.note{top:15%}.audio{top:14%}}
+</style></head><body><div id="stage"><div class="grid"></div>
+<div class="top"><div class="brand">GLOBAL <em>LAUNCH</em> WATCH</div><div class="live">COUNTDOWN LIVE</div></div>
+<div class="heading"><h1>GRAND THEFT AUTO VI</h1><p>THE WORLD IS WAITING</p></div>
+<div class="note">LIVE WORLD CLOCKS · REGIONAL RELEASE TIMERS</div>
+<section class="hero"><div class="kicker">INDIA · LOCAL COUNTDOWN</div><div id="count">-- : -- : -- : --</div><div class="units"><span>DAYS</span><span>HOURS</span><span>MINUTES</span><span>SECONDS</span></div></section>
+<svg class="map" viewBox="0 0 1200 520" preserveAspectRatio="xMidYMid meet" aria-label="Animated neon world map"><defs><linearGradient id="land" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ff69ba"/><stop offset=".52" stop-color="#a64eff"/><stop offset="1" stop-color="#4b3ab4"/></linearGradient><filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+<g class="land"><path d="M75 112 115 67 188 49 247 67 292 54 347 83 370 119 339 154 300 163 277 206 239 225 211 267 173 247 149 207 111 190 87 151Z"/><path d="M268 276 315 286 344 330 332 382 311 438 284 490 258 456 245 407 225 362 235 319Z"/><path d="M478 95 522 71 570 81 596 112 573 143 536 143 510 168 476 145Z"/><path d="M511 171 558 153 602 175 619 225 599 279 570 331 540 301 527 254 496 211Z"/><path d="M604 103 667 73 747 80 804 105 864 95 922 120 974 151 949 182 899 178 856 208 812 193 780 221 733 207 699 174 658 170 628 139Z"/><path d="M850 294 902 277 951 300 974 339 949 375 903 382 867 356 839 324Z"/><path d="M1000 395 1038 379 1065 400 1051 429 1018 433Z"/></g>
+<path class="arc" d="M170 160 Q390 -12 570 165 T930 160"/><path class="arc alt" d="M290 330 Q570 450 740 185 T1030 330"/><path class="arc" d="M540 185 Q720 10 875 160"/><path class="arc alt" d="M170 160 Q500 480 900 330"/>
+<g><circle class="pin" cx="170" cy="160" r="7"/><circle class="pin" cx="540" cy="130" r="7"/><circle class="pin" cx="570" cy="190" r="7"/><circle class="pin" cx="740" cy="185" r="7"/><circle class="pin" cx="875" cy="160" r="7"/><circle class="pin" cx="290" cy="330" r="7"/><circle class="pin" cx="930" cy="330" r="7"/></g><g class="maplabel"><text x="110" y="139">AMERICAS</text><text x="478" y="112">EUROPE</text><text x="690" y="146">ASIA</text><text x="850" y="410">OCEANIA</text><text x="540" y="218">INDIA</text></g></svg>
+<div class="citygrid" id="cities"></div><div class="bottom"><span>UNOFFICIAL FAN-MADE COUNTDOWN</span><span>LOCAL CLOCKS · 24-HOUR FORMAT</span><span>NOT AFFILIATED WITH ROCKSTAR GAMES</span></div></div>
+
+<script>
+// Confirmed rolling midnight-local launch for 19 Nov 2026.
+// UTC instants below are the representative city unlocks for the selected time zones.
+const zones=[
+ ["AUCKLAND","Pacific/Auckland","2026-11-18T11:00:00Z"],
+ ["SYDNEY","Australia/Sydney","2026-11-18T13:00:00Z"],
+ ["TOKYO","Asia/Tokyo","2026-11-18T15:00:00Z"],
+ ["SHANGHAI","Asia/Shanghai","2026-11-18T16:00:00Z"],
+ ["INDIA","Asia/Kolkata","2026-11-18T18:30:00Z"],
+ ["DUBAI","Asia/Dubai","2026-11-18T20:00:00Z"],
+ ["PARIS","Europe/Paris","2026-11-18T23:00:00Z"],
+ ["LONDON","Europe/London","2026-11-19T00:00:00Z"],
+ ["NEW YORK","America/New_York","2026-11-19T05:00:00Z"],
+ ["LOS ANGELES","America/Los_Angeles","2026-11-19T08:00:00Z"],
+ ["SAO PAULO","America/Sao_Paulo","2026-11-19T03:00:00Z"],
+ ["JOHANNESBURG","Africa/Johannesburg","2026-11-18T22:00:00Z"]
+];
+const pad=n=>String(n).padStart(2,"0");
+const clockFmt=(d,z)=>new Intl.DateTimeFormat("en-GB",{timeZone:z,hour:"2-digit",minute:"2-digit",second:"2-digit",hourCycle:"h23"}).format(d);
+function remaining(ms){if(ms<=0)return"RELEASED";let s=Math.floor(ms/1000),d=Math.floor(s/86400);s%=86400;let h=Math.floor(s/3600);s%=3600;let m=Math.floor(s/60);s%=60;return`${pad(d)} : ${pad(h)} : ${pad(m)} : ${pad(s)}`}
+const root=document.getElementById("cities");
+zones.forEach(([name,zone,target])=>{const el=document.createElement("div");el.className="city"+(name==="INDIA"?" main":"");el.innerHTML=`<strong>${name}</strong><span class="clock">--:--:--</span><span class="remaining">--</span>`;el.dataset.zone=zone;el.dataset.target=target;root.appendChild(el)});
+function update(){const now=new Date();let indiaDiff=0;document.querySelectorAll(".city").forEach(el=>{const diff=new Date(el.dataset.target)-now;el.querySelector(".clock").textContent=clockFmt(now,el.dataset.zone);el.querySelector(".remaining").textContent=remaining(diff);if(el.dataset.zone==="Asia/Kolkata")indiaDiff=diff});document.getElementById("count").textContent=remaining(indiaDiff)}
+update();setInterval(update,250);
+</script></body></html>
